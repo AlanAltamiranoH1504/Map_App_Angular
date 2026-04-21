@@ -1,1 +1,23 @@
-<p>fullscreen-map-page works!</p>
+<div #map></div>
+
+<section id="controls">
+  <h2 class="text-2xl font-semibold text-black mb-2">
+    Zoom
+    <small class="text-gray-500 font-normal">{{ zoomValue() | number: '1.0-0' }}</small>
+  </h2>
+  <input
+    (input)="zoomValue.set(+inputZom.value)"
+    type="range"
+    min="1"
+    max="19"
+    [value]="zoomValue()"
+    class="range range-primary"
+    #inputZom
+  />
+
+  <h2 class="text-sm text-gray-500 my-2">
+    Coordenadas
+    <span class="block">Latitud: {{ cordinates().lat | number: '1.4-4' }}</span>
+    <span>Longitud {{ cordinates().lng | number: '1.4-4' }}</span>
+  </h2>
+</section>
